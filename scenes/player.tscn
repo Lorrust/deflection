@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdth3sw6kgk44"]
+
+[ext_resource type="Texture2D" uid="uid://engolkl0j7lo" path="res://icon.svg" id="1_fevjf"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_gskn8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chrnp"]
+size = Vector2(104, 104)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lh8nr"]
+radius = 237.135
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_gskn8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8125, 0.8125)
+texture = ExtResource("1_fevjf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_chrnp")
+
+[node name="DeflectArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeflectArea"]
+shape = SubResource("CircleShape2D_lh8nr")
+debug_color = Color(0, 0.647059, 0.25098, 0.0666667)
+
+[connection signal="area_entered" from="DeflectArea" to="." method="_on_deflect_area_area_entered"]
