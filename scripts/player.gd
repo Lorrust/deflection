@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var player_number = 1
-@export var speed = 200
+@export var speed = 150
 
 var input_dir = Vector2.ZERO
 
@@ -27,11 +27,12 @@ func player_movement():
 	velocity = input_dir * speed
 	move_and_slide()
 
-
-func _on_deflect_area_body_entered(body):
-	if body.name == "Ball":
-		deflect_ball(body)
-
+func _on_deflect_area_area_entered(area):
+	print(area.get_parent().name)
+	if area.get_parent().name == "Ball":
+		deflect_ball(area.get_parent())
 
 func deflect_ball(ball):
+	#if ball.current_target == self:
 	ball.change_target()
+	print("deflected!")

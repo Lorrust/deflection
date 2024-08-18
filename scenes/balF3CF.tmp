@@ -1,22 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://fm76lswwdo63"]
+[gd_scene load_steps=5 format=3 uid="uid://fm76lswwdo63"]
 
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_7u0ut"]
 [ext_resource type="Texture2D" uid="uid://5clyhu4grp5n" path="res://assets/ball.png" id="1_osey5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1dpcu"]
+radius = 1163.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jlg11"]
 radius = 41.0121
 
 [node name="Ball" type="CharacterBody2D"]
-collision_layer = 3
 script = ExtResource("1_7u0ut")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
 
-[node name="Hitbox2" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(1, 1.00488)
-shape = SubResource("CircleShape2D_jlg11")
-debug_color = Color(0.937255, 0, 0.627451, 0.419608)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_1dpcu")
+debug_color = Color(0, 0.6, 0.701961, 0.0666667)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.5625, 2.5625)

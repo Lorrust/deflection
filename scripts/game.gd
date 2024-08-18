@@ -1,0 +1,38 @@
+extends Node2D
+
+@export var player_scene : PackedScene
+@export var ball_scene : PackedScene
+
+var players = []
+var player1
+var player2
+var ball
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	var screen_size = get_viewport_rect().size
+	
+	player1 = player_scene.instantiate()
+	player2 = player_scene.instantiate()
+	
+	player1.player_number = 1
+	player2.player_number = 2
+	
+	player1.position = Vector2(200, screen_size.y / 2)
+	player2.position = Vector2(screen_size.x - 200, screen_size.y / 2)
+	
+	add_child(player1)
+	add_child(player2)
+	
+	players.append(player1)
+	players.append(player2)
+	
+	ball = ball_scene.instantiate()
+	
+	ball.position = Vector2(screen_size.x / 2, screen_size.y / 2)
+	
+	add_child(ball)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
