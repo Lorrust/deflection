@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal reset_signal
+signal reset_signal(Area2D)
 
 const INITIAL_SPEED = 50
 const MAX_SPEED = 1500
@@ -48,7 +48,7 @@ func _on_area_2d_body_entered(body):
 	if current_target == body:
 		$Damage.play()
 		reset_ball()
-		reset_signal.emit()
+		reset_signal.emit(body)
 	else:
 		pass
 

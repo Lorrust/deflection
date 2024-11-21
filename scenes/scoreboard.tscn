@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://du6wfoabjthm2"]
+
+[ext_resource type="FontFile" uid="uid://cf5332k6p4x18" path="res://assets/fonts/Minecraft.ttf" id="1_5qoca"]
+
+[node name="Scoreboard" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_5qoca")
+theme_override_font_sizes/font_size = 30
