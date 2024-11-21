@@ -29,7 +29,6 @@ func _ready():
 	
 	reset_game()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
@@ -40,7 +39,7 @@ func reset_game():
 func reset_ball():
 	var screen_size = get_viewport_rect().size
 	ball.position = Vector2(screen_size.x / 2, screen_size.y / 2)
-	ball.speed = ball.INITIAL_SPEED  # If you want to reset the speed
+	ball.speed = ball.INITIAL_SPEED
 
 func reset_players():
 	var screen_size = get_viewport_rect().size
