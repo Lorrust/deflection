@@ -200,6 +200,7 @@ radius = 54.0833
 radius = 160.078
 
 [node name="Player" type="CharacterBody2D"]
+rotation = 0.010472
 collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_gskn8")

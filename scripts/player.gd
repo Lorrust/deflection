@@ -39,6 +39,12 @@ func player_movement():
 		else:
 			$AnimatedSprite2D.play("idle")
 
+func reset_movement():
+	if player_number == 1:
+		position = Vector2(300, 324)
+	elif player_number == 2:
+		position = Vector2(800, 324)
+
 func is_deflect_button_pressed():
 	if player_number == 1:
 		return Input.is_action_just_pressed("player1_deflect")

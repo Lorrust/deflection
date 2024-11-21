@@ -8,10 +8,7 @@ var player1
 var player2
 var ball
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	var screen_size = get_viewport_rect().size
-	
 	player1 = player_scene.instantiate()
 	player2 = player_scene.instantiate()
 	
@@ -27,21 +24,30 @@ func _ready():
 	add_child(player2)
 	add_child(ball)
 	
+	ball.connect("reset_signal", _on_ball_reset)
+	
 	reset_game()
 
 func _process(delta):
-	pass
+	update_player_facing()
+
+func _on_ball_reset():
+	reset_game()
+
+func update_player_facing():
+	var player1_sprite = player1.get_node("AnimatedSprite2D")
+	var player2_sprite = player2.get_node("AnimatedSprite2D")
+	
+	if player1.position.x < player2.position.x:
+		player1_sprite.flip_h = false
+		player2_sprite.flip_h = true
+	else:
+		player1_sprite.flip_h = true
+		player2_sprite.flip_h = false
 
 func reset_game():
-	reset_ball()
 	reset_players()
 
-func reset_ball():
-	var screen_size = get_viewport_rect().size
-	ball.position = Vector2(screen_size.x / 2, screen_size.y / 2)
-	ball.speed = ball.INITIAL_SPEED
-
 func reset_players():
-	var screen_size = get_viewport_rect().size
-	player1.position = Vector2(200, screen_size.y / 2)
-	player2.position = Vector2(screen_size.x - 200, screen_size.y / 2)
+	player1.reset_movement()
+	player2.reset_movement()

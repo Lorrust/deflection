@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://fm76lswwdo63"]
 
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_7u0ut"]
-[ext_resource type="Texture2D" uid="uid://deqbskcajcs0a" path="res://assets/shuriken.png" id="2_fp8fy"]
+[ext_resource type="Texture2D" uid="uid://deqbskcajcs0a" path="res://assets/misc/shuriken.png" id="2_fp8fy"]
 [ext_resource type="AudioStream" uid="uid://cgu3a4gwlucg0" path="res://assets/sounds/damage.mp3" id="3_0xy1n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jlg11"]

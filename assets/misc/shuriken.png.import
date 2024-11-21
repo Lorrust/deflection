@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qehmghuuvw1s"
-path="res://.godot/imported/floor.png-38406586736af2fe805d7b886727ee47.ctex"
+uid="uid://deqbskcajcs0a"
+path="res://.godot/imported/shuriken.png-cf20f92696e913409d5c54cc654956e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/floor.png"
-dest_files=["res://.godot/imported/floor.png-38406586736af2fe805d7b886727ee47.ctex"]
+source_file="res://assets/misc/shuriken.png"
+dest_files=["res://.godot/imported/shuriken.png-cf20f92696e913409d5c54cc654956e9.ctex"]
 
 [params]
 

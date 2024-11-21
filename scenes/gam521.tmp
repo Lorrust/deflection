@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bdth3sw6kgk44" path="res://scenes/player.tscn" id="1_1a5sg"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_epv12"]
 [ext_resource type="PackedScene" uid="uid://fm76lswwdo63" path="res://scenes/ball.tscn" id="2_nxp02"]
-[ext_resource type="Texture2D" uid="uid://bujriy8vvwyou" path="res://assets/environment/room.png" id="4_jms1f"]
+[ext_resource type="Texture2D" uid="uid://bujriy8vvwyou" path="res://assets/sala.png" id="4_jms1f"]
 
 [node name="Game" type="Node2D"]
 rotation = -0.0111774

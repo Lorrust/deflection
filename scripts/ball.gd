@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal reset_signal
+
 const INITIAL_SPEED = 50
 const MAX_SPEED = 1500
 const SPEED_GROW = 25
@@ -23,7 +25,7 @@ func _process(delta):
 	if players and current_target:
 		var direction = (current_target.global_position - global_position).normalized()
 		velocity = direction * speed
-		# Speed limit
+
 		if velocity.length() > MAX_SPEED:
 			velocity = velocity.normalized() * MAX_SPEED
 			
@@ -34,23 +36,19 @@ func update_rotation(delta):
 	rotation += rotation_speed
 
 func change_target():
-	# Change target
 	if current_target == players[0]:
 		current_target = players[1]
 	else:
 		current_target = players[0]
 	
-	# Increase speed, but make sure it doesn't exceed MAX_SPEED
 	speed = min(speed + SPEED_GROW, MAX_SPEED)
 	rotation_speed += 0.01
 
-# TODO finish this part and create reset_ball function
 func _on_area_2d_body_entered(body):
-	print("touch!")
-	print(body.name)
 	if current_target == body:
 		$Damage.play()
 		reset_ball()
+		reset_signal.emit()
 	else:
 		pass
 
