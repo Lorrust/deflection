@@ -80,3 +80,6 @@ func update_score(player: Object):
 	
 	score_label_player1.text = "Player 1: " + str(score_player1)
 	score_label_player2.text = "Player 2: " + str(score_player2 - 1)
+
+func _on_button_pressed() -> void:
+	get_tree().quit()

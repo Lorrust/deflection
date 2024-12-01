@@ -6,8 +6,12 @@ var input_dir = Vector2.ZERO
 var can_deflect = true
 var is_deflecting = false
 
+# Define screen size or map size for clamping (can replace with custom map size)
+var screen_size : Vector2
+
 func _ready():
 	$Cooldown.timeout.connect(_on_cooldown_timeout)
+	screen_size = get_viewport_rect().size  # Get screen size
 
 func _physics_process(delta):
 	player_movement()
@@ -30,6 +34,11 @@ func player_movement():
 	velocity = input_dir * speed
 	move_and_slide()
 	
+	# Clamp the player position to ensure they stay within the screen bounds
+	position.x = clamp(position.x, 200, screen_size.x - 200)
+	position.y = clamp(position.y, 150, screen_size.y - 150)
+	
+	# Play appropriate animation based on movement
 	if is_deflecting:
 		$AnimatedSprite2D.play("deflect")
 	else:

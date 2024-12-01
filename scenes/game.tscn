@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5qqgsfawk0fg"]
+[gd_scene load_steps=8 format=3 uid="uid://b5qqgsfawk0fg"]
 
 [ext_resource type="PackedScene" uid="uid://bdth3sw6kgk44" path="res://scenes/player.tscn" id="1_1a5sg"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_epv12"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bujriy8vvwyou" path="res://assets/environment/room.png" id="4_jms1f"]
 [ext_resource type="PackedScene" uid="uid://du6wfoabjthm2" path="res://scenes/scoreboard.tscn" id="4_oyjc6"]
 [ext_resource type="AudioStream" uid="uid://demslh7ehbaib" path="res://assets/sounds/soundtrack.mp3" id="6_ghqtn"]
+[ext_resource type="FontFile" uid="uid://cf5332k6p4x18" path="res://assets/fonts/Minecraft.ttf" id="7_7631p"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_epv12")
@@ -22,3 +23,13 @@ texture = ExtResource("4_jms1f")
 stream = ExtResource("6_ghqtn")
 volume_db = -20.0
 autoplay = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 556.0
+offset_top = 7.0
+offset_right = 595.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("7_7631p")
+text = "Quit"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
