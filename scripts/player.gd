@@ -3,18 +3,17 @@ extends CharacterBody2D
 var player_number
 var speed = 150
 var input_dir = Vector2.ZERO
+var can_deflect = true
 var is_deflecting = false
+
+func _ready():
+	$Cooldown.timeout.connect(_on_cooldown_timeout)
 
 func _physics_process(delta):
 	player_movement()
 
-	if is_deflect_button_pressed():
-		$Deflect.play()
-		var overlapping_areas = $DeflectArea.get_overlapping_areas()
-		for area in overlapping_areas:
-			if area.get_parent().name == "Ball":
-				deflect_ball(area.get_parent())
-				$Hit.play()
+	if is_deflect_button_pressed() and can_deflect and not is_deflecting:
+		start_deflect()
 
 func get_input():
 	if player_number == 1:
@@ -52,14 +51,28 @@ func is_deflect_button_pressed():
 		return Input.is_action_just_pressed("player2_deflect")
 	return false
 
-func deflect_ball(ball):
+func start_deflect() -> void:
+	can_deflect = false
 	is_deflecting = true
+	$Deflect.play()
+
+	var overlapping_areas = $DeflectArea.get_overlapping_areas()
+	if overlapping_areas.is_empty():
+		$Error.play()
+	else:
+		for area in overlapping_areas:
+			if area.get_parent().name == "Ball":
+				deflect_ball(area.get_parent())
+				$Hit.play()
+
+	await get_tree().create_timer(0.5).timeout
+	is_deflecting = false
 	$Cooldown.start()
-	$AnimatedSprite2D.play("deflect")
+
+func deflect_ball(ball):
 	if ball.current_target == self:
 		ball.change_target()
 		print("deflected!")
 
-
 func _on_cooldown_timeout() -> void:
-	is_deflecting = false
+	can_deflect = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bdth3sw6kgk44"]
+[gd_scene load_steps=34 format=3 uid="uid://bdth3sw6kgk44"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_gskn8"]
 [ext_resource type="Texture2D" uid="uid://mwetdhgwn2qi" path="res://assets/samurai/heavy-attack.png" id="2_kfpov"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://o8eq110o8asa" path="res://assets/samurai/run-sword.png" id="3_krvi8"]
 [ext_resource type="AudioStream" uid="uid://poly16tven1n" path="res://assets/sounds/deflect.mp3" id="5_l7lj6"]
 [ext_resource type="AudioStream" uid="uid://bpscix8jcye85" path="res://assets/sounds/hit.mp3" id="6_7m8dt"]
-[ext_resource type="AudioStream" uid="uid://u1m4v2g5aojv" path="res://assets/sounds/error.mp3" id="7_00yk7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oyp64"]
 atlas = ExtResource("2_kfpov")
@@ -232,9 +231,6 @@ stream = ExtResource("5_l7lj6")
 [node name="Hit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_7m8dt")
 volume_db = -10.0
-
-[node name="Error" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_00yk7")
 
 [connection signal="area_entered" from="DeflectArea" to="." method="_on_deflect_area_area_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

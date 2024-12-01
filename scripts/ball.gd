@@ -21,7 +21,6 @@ func _ready():
 		current_target = players.front()
 
 func _process(delta):
-	print(speed)
 	if players and current_target:
 		var direction = (current_target.global_position - global_position).normalized()
 		velocity = direction * speed
