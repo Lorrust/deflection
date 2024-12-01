@@ -16,6 +16,24 @@ A fast-paced 2D reflex-based game where two samurais face off in a battle of pre
 
 ---
 
+## Controls 🎮
+
+### Player 1 (Samurai 1):
+- **Move Left**: `A`
+- **Move Right**: `D`
+- **Move Up**: `W`
+- **Move Down**: `S`
+- **Deflect**: `Spacebar`, `F` or `G`
+
+### Player 2 (Samurai 2):
+- **Move Left**: `Left Arrow`
+- **Move Right**: `Right Arrow`
+- **Move Up**: `Up Arrow`
+- **Move Down**: `Down Arrow`
+- **Deflect**: `Enter`, `K` or `L`
+
+---
+
 ## Features ✨
 
 - **Intuitive Controls**: Simple, responsive controls for precise gameplay.  
